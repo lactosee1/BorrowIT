@@ -136,4 +136,12 @@ class NotificationService {
     await _notifications.cancel(id: notificationId);
     await _notifications.cancel(id: notificationId + 1);
   }
+  static Future<void> showTestNotification() async {
+    await _notifications.show(
+      id: 999999,
+      title: 'BorrowIT Notifications',
+      body: 'Notifications are working correctly!',
+      notificationDetails: _notificationDetails,
+    );
+  }
 }

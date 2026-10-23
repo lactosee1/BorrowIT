@@ -157,11 +157,13 @@ class _MyRequestsScreenState extends State<MyRequestsScreen> {
 
                 if (!context.mounted) return;
 
+                await NotificationService.showTestNotification();
+
+                if (!context.mounted) return;
+
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
-                    content: Text(
-                      'Notification permission requested.',
-                    ),
+                    content: Text('Test notification sent.'),
                   ),
                 );
               } catch (error) {
@@ -169,9 +171,7 @@ class _MyRequestsScreenState extends State<MyRequestsScreen> {
 
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
-                    content: Text(
-                      'Notification error: $error',
-                    ),
+                    content: Text('Notification error: $error'),
                   ),
                 );
               }
